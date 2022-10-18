@@ -71,7 +71,7 @@ data "kubernetes_service" "autosys_agent" {
     name = "autosys-agent-${var.namespace}"
     namespace = "${var.namespace}"
   }
-  time_sleep = [time_sleep.wait_for_service]
+  depends_on = [time_sleep.wait_for_service]
 }
 
 output "output" {
