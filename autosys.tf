@@ -59,25 +59,27 @@ resource "kubernetes_manifest" "autosys_agent" {
   }
 }
 
-data "kubernetes_resource" "example" {
-  api_version = "autosys.ddp.bp2i/v1alpha1"
-  kind        = "AutosysAgent"
-
-  metadata {
-    name      = "autosys-agent-${var.namespace}"
-    namespace = "${var.namespace}"
-  }
- 
-   depends_on = [kubernetes_manifest.autosys_agent]
-}
-
 data "kubernetes_service" "autosys_agent" {
   metadata {
     name = "autosys-agent-${var.namespace}"
     namespace = "${var.namespace}"
   }
-  depends_on = [kubernetes_manifest.autosys_agent,kubernetes_resource.example]
+  depends_on = [kubernetes_manifest.autosys_agent.spec]
 }
+
+#data "kubernetes_resource" "example" {
+#  api_version = "autosys.ddp.bp2i/v1alpha1"
+#  kind        = "AutosysAgent"
+
+#  metadata {
+#    name      = "autosys-agent-${var.namespace}"
+#    namespace = "${var.namespace}"
+#  }
+ 
+#   depends_on = [kubernetes_manifest.autosys_agent]
+#}
+
+
 
 output "test" {
   value = data.kubernetes_service.autosys_agent.spec
