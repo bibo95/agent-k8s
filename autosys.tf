@@ -16,7 +16,7 @@ resource "kubernetes_manifest" "autosys_agent" {
   
   manifest = {
     
-    apiVersion = "apiextensions.k8s.io/v1"
+    apiVersion = "autosys.ddp.bp2i/v1alpha1"
     kind       = "AutosysAgent"
 
     metadata = {
