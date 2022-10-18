@@ -64,7 +64,6 @@ data "kubernetes_service" "autosys_agent" {
     name = "autosys-agent-${var.namespace}"
     namespace = "${var.namespace}"
   }
-  depends_on = [data.kubernetes_manifest.autosys_agent]
 }
 
 data "null_data_source" "values" {
