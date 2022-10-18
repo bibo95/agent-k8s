@@ -32,7 +32,8 @@ resource "kubernetes_manifest" "autosys_agent" {
         "appcode" = "AP24664"
         "codeap" = "AP24664"
         "ecosystem" = "toto"
-        "tier" = "PA"    
+        "tier" = "PA"
+        "environment" = "DEV"
       }
       "illumio" = {
         "app" = "A_toto-CA-AUTOSYS_0-DEFAULT"
