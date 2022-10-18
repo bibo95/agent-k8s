@@ -76,10 +76,10 @@ data "kubernetes_service" "autosys_agent" {
     name = "autosys-agent-${var.namespace}"
     namespace = "${var.namespace}"
   }
-  depends_on = [kubernetes_manifest.autosys_agent,kubernetes_manifest.autosys_agent]
+  depends_on = [kubernetes_manifest.autosys_agent,kubernetes_resource.example]
 }
 
 output "test" {
-  value = data.kubernetes_service.autosys_agent
+  value = data.kubernetes_service.autosys_agent.spec
 }
 
