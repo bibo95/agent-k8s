@@ -15,7 +15,7 @@ provider "ibm" {
 data "ibm_container_cluster_config" "config" {
   cluster_name_id   = var.cluster_id
   config_dir        = local.config_dir
-  resource_group_id = data.ibm_resource_group.resource_group.id
+  resource_group_id = var.resource_group_id
 }
 
 provider "kubernetes" {
