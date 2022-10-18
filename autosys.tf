@@ -33,16 +33,7 @@ resource "kubernetes_manifest" "autosys_agent" {
     }
 
     spec = {
-      selector {
-        match_labels = {
-          app = "autosys-agent-${var.namespace}"
-          appcode = "AP24664"
-          codeap = "AP24664"
-          opscontact = "paris_bp2i_scheduling_products_open_at_bnpparibas.com"
-          tier = "PA"
-        }
-      }
-
+      
       contact = "paris_bp2i_scheduling_products_open_at_bnpparibas.com"
       identification = {
         appcode = "AP24664"
