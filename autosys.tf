@@ -11,7 +11,7 @@ resource "kubernetes_config_map" "autosys_configmap" {
     AUTOSYS_ENVIRONMENT = var.environment
   }
 
-  depends_on = [kubernetes_namespace.namespace]
+
 }
 
 resource "kubernetes_manifest" "autosys_agent" {
