@@ -22,3 +22,8 @@ variable "environment" {
   description = "ID of the cluster used to run the agent service."
   type        = string
 }
+
+variable "resource_group_id" {
+  description = "ID of the cluster used to run the agent service."
+  type        = string
+}
