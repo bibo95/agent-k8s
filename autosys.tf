@@ -67,21 +67,14 @@ data "kubernetes_service" "autosys_agent" {
   depends_on = [kubernetes_manifest.autosys_agent.spec]
 }
 
-#data "kubernetes_resource" "example" {
-#  api_version = "autosys.ddp.bp2i/v1alpha1"
-#  kind        = "AutosysAgent"
-
-#  metadata {
-#    name      = "autosys-agent-${var.namespace}"
-#    namespace = "${var.namespace}"
-#  }
- 
-#   depends_on = [kubernetes_manifest.autosys_agent]
-#}
-
-
-
-output "test" {
-  value = data.kubernetes_service.autosys_agent.spec
+data "null_data_source" "values" {
+  inputs = {
+    node_port = kubernetes_service.autosys_agent.spec
+  }
 }
+
+output "node_port" {
+  value = data.null_data_source.values.outputs["node_port"]
+}
+
 
