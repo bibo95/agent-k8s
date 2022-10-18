@@ -22,14 +22,6 @@ resource "kubernetes_manifest" "autosys_agent" {
     metadata = {
       name      = "autosys-agent-${var.namespace}"
       namespace = "${var.namespace}"
-    
-      labels = {
-        app = "autosys-agent-${var.namespace}"
-        appcode = "${var.appcode}"
-        codeap = "${var.appcode}"
-        opscontact = "mohamed_eloirrak_at_bnpparibas.com"
-        tier = "PA"
-      }
     }
 
     spec = {
