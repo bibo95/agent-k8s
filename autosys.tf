@@ -60,7 +60,7 @@ resource "kubernetes_manifest" "autosys_agent" {
 }
 
 data "kubernetes_resource" "example" {
-  api_version = "v1"
+  apiVersion = "autosys.ddp.bp2i/v1alpha1"
   kind        = "AutosysAgent"
 
   metadata {
