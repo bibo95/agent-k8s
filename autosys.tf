@@ -59,11 +59,19 @@ resource "kubernetes_manifest" "autosys_agent" {
   }
 }
 
+
+
+resource "time_sleep" "wait_for_service" {
+  create_duration = "60s"
+  depends_on = [data.kubernetes_manifest.autosys_agent]
+}
+
 data "kubernetes_service" "autosys_agent" {
   metadata {
     name = "autosys-agent-${var.namespace}"
     namespace = "${var.namespace}"
   }
+  time_sleep = [time_sleep.wait_for_service]
 }
 
 output "output" {
