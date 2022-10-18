@@ -54,7 +54,6 @@ resource "kubernetes_manifest" "autosys_agent" {
         "index" = "cloud_bp2i_autosys"
         "source" = "all.autosys.json"
       }
-      "scope" = "Namespaced"
     }
     
   }
