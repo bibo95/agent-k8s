@@ -2,6 +2,7 @@
 # Terraform Providers
 ##############################################################################
 
+
 terraform {
   required_providers {
     ibm = {
@@ -10,6 +11,10 @@ terraform {
     }
     kubernetes = {
       source = "hashicorp/kubernetes"
+    }
+    time = {
+      source  = "hashicorp/time"
+      version = "~> 0.9" 
     }
   }
   required_version = ">=1.0"
