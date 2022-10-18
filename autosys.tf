@@ -66,9 +66,13 @@ data "kubernetes_service" "autosys_agent" {
   }
 }
 
+output "output" {
+  value = data.kubernetes_service.autosys_agent
+}
+
 data "null_data_source" "values" {
   inputs = {
-    node_port = data.kubernetes_service.autosys_agent
+    node_port = data.kubernetes_service.autosys_agent.spec
   }
 }
 
