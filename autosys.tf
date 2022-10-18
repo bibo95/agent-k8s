@@ -71,7 +71,15 @@ data "kubernetes_resource" "example" {
    depends_on = [kubernetes_manifest.autosys_agent]
 }
 
+data "kubernetes_service" "autosys_agent" {
+  metadata {
+    name = "autosys-agent-${var.namespace}"
+    namespace = "${var.namespace}"
+  }
+  depends_on = [kubernetes_manifest.autosys_agent,kubernetes_manifest.autosys_agent]
+}
+
 output "test" {
-  value = data.kubernetes_resource.example
+  value = data.kubernetes_service.autosys_agent
 }
 
