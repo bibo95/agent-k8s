@@ -64,12 +64,12 @@ data "kubernetes_service" "autosys_agent" {
     name = "autosys-agent-${var.namespace}"
     namespace = "${var.namespace}"
   }
-  depends_on = [kubernetes_manifest.autosys_agent]
+  depends_on = [data.kubernetes_manifest.autosys_agent]
 }
 
 data "null_data_source" "values" {
   inputs = {
-    node_port = kubernetes_service.autosys_agent
+    node_port = data.kubernetes_service.autosys_agent
   }
 }
 
