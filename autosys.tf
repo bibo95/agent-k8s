@@ -29,13 +29,13 @@ resource "kubernetes_manifest" "autosys_agent" {
         "email" = "paris_bp2i_scheduling_products_open_at_bnpparibas.com"
       }
       "identification" = {
-        "appcode" = "AP24664"
+        "appcode" = "${var.appcode}"
         "ecosystem" = "${var.ecosystem}"
         "tier" = "PA"
         "environment" = "DEV"
       }
       "illumio" = {
-        "app" = "A_toto-CA-AUTOSYS_0-DEFAULT"
+        "app" = "A_${var.appcode}-CA-AUTOSYS_0-DEFAULT"
         "env" = "E_DEV"
         "loc" = "L_EMEA_T2_BNPP_DMZR-VPC-BIZ"
         "role" = "R_RESTRICTED_AD_KUBE_OTHER-SOFT"
