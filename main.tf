@@ -3,21 +3,10 @@
 # IBM Cloud Provider
 ##############################################################################
 provider "ibm" {
-  ibmcloud_api_key = var.ibmcloud_api_key
-  region           = var.location
+  #ibmcloud_api_key = var.ibmcloud_api_key
+  region           = "eu-fr2"
   ibmcloud_timeout = 60
 }
-
-##############################################################################
-
-
-##############################################################################
-# Resource Group where VPC is created
-##############################################################################
-data "ibm_resource_group" "resource_group" {
-  name = var.resource_group_name
-}
-
 
 ##############################################################################
 # Kubetnetes provider setup
