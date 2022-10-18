@@ -30,7 +30,6 @@ resource "kubernetes_manifest" "autosys_agent" {
       }
       "identification" = {
         "appcode" = "AP24664"
-        "codeap" = "AP24664"
         "ecosystem" = "toto"
         "tier" = "PA"
         "environment" = "DEV"
